@@ -19,17 +19,18 @@ app.get("/send-email", async (request, response) => {
   try {
     // create transporter object
     let transporter = nodemailer.createTransport({
-      host: "smtp.mailtrap.io",
-      port: 2525,
-      auth: {
-        user: "b341e1b9f6cdf2",
-        pass: "a019f31f9d9e94"
-      }
+      host: 'smtp.googlemail.com', // Gmail Host
+        port: 465, // Port
+        secure: true, // this is true as port is 465
+        auth: {
+            user: 'your@gmail.com', // generated ethereal user
+            pass: 'your_pass', // generated ethereal password
+        },
     });
 
     const emailData = {
-      from: "example1@mail.com",
-      to: "example2@mail.com",
+      from: "your@gmail.com",
+      to: "your@gmail.com",
       subject: "A test email",
       html: "<p> Hi there, this is a test email </p>"
     };
